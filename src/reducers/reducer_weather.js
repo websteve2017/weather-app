@@ -6,7 +6,7 @@ export default function(state = {}, action) {
 
   switch (action.type) {
     case FETCH_WEATHER:
-      return  _.mapKeys(action.payload.data, 'id')
+      return  action.payload.data
     break;
 
     default:

@@ -4,7 +4,7 @@ class SiteFooter extends Component {
 	render() {
 		return (
 		  <footer>
-		    <div class="footer-copy">&copy; 2017 Steve Hawkes</div>
+		    <div className="footer-copy">&copy; 2017 Steve Hawkes</div>
 		  </footer>
 		);
 	}

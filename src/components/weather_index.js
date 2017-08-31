@@ -7,6 +7,10 @@ import { fetchWeather } from '../actions';
 import SiteHeader from './site_header';
 import SiteFooter from './site_footer';
 
+const Timestamp = require('react-timestamp');
+
+
+
 class WeatherIndex extends Component {
 
   componentDidMount() {
@@ -14,14 +18,69 @@ class WeatherIndex extends Component {
   }
 
 	render() { 
-		return (
-			<div>
+		if(!this.props.weather.id) {
+			return (
+				<div>loading....</div>
+			);
+		}
+
+		const { weather: { name, temp, weather, main, wind, sys } } = this.props;
+
+		return ( 
+			<div className="weather-wrapper">
 				<SiteHeader />
 
-				<main class="weather_main">
-				weather index page here
 
+				<main className="weather-main">
+					<div className="weather-forecast-card">
+
+						<div className="weather-icon">
+							<img src={`https://openweathermap.org/img/w/${weather[0].icon}.png`} />
+						</div>
+
+						<div className="weather-city-title">
+							{name}
+							<span className="weather-temp">
+								- {main.temp}&deg;C
+							</span>
+						</div>
+
+						<div className="weather-description">
+							{weather[0].description}
+						</div>
+
+						<div className="weather-info-row">
+							<div className="weather-info-text">
+								Min: {main.temp_min}&deg;C
+							</div>
+							<div className="weather-info-text">
+								Max: {main.temp_max}0&deg;C
+							</div>
+						</div>
+
+						<div className="weather-info-row">
+							<div className="weather-info-text">
+								Sunrise:  
+								<Timestamp time={sys.sunrise} />
+							</div>
+							<div className="weather-info-text">
+								Sunset:
+								<Timestamp time={sys.sunset} />
+							</div>
+						</div>
+
+						<div className="weather-info-row">
+							<div className="weather-info-text">
+								Wind speed: {wind.speed}mph
+							</div>
+							<div className="weather-info-text">
+								Direction: {wind.deg}&deg;
+							</div>
+						</div>
+
+					</div>
 				</main>
+
 
 				<SiteFooter />
 			</div>
