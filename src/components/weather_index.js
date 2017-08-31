@@ -25,6 +25,7 @@ class WeatherIndex extends Component {
 		}
 
 		const { weather: { name, temp, weather, main, wind, sys } } = this.props;
+		const timeNow = new Date().toLocaleString('en-GB');  
 
 		return ( 
 			<div className="weather-wrapper">
@@ -32,6 +33,10 @@ class WeatherIndex extends Component {
 
 
 				<main className="weather-main">
+					<div className="weather-date-time"> 
+						{timeNow}
+					</div>
+
 					<div className="weather-forecast-card">
 
 						<div className="weather-icon">

@@ -104,6 +104,14 @@ header {
   width: 95%;
 }
 
+.weather-date-time {
+  font-size: 12px;  
+  line-height: 120%;
+  padding: 10px 5%;
+  text-align: right;
+  width: 90%;
+}
+
 .weather-forecast-card {
   background-color: #fff;
   border: 1px solid #ccc;
