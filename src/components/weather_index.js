@@ -17,80 +17,80 @@ class WeatherIndex extends Component {
     this.props.fetchWeather();
   }
 
-	render() { 
-		if(!this.props.weather.id) {
-			return (
-				<div>loading....</div>
-			);
-		}
+  render() { 
+    if(!this.props.weather.id) {
+      return (
+        <div>loading....</div>
+      );
+    }
 
-		const { weather: { name, temp, weather, main, wind, sys } } = this.props;
-		const timeNow = new Date().toLocaleString('en-GB');  
+    const { weather: { name, temp, weather, main, wind, sys } } = this.props;
+    const timeNow = new Date().toLocaleString('en-GB');  
 
-		return ( 
-			<div className="weather-wrapper">
-				<SiteHeader />
-
-
-				<main className="weather-main">
-					<div className="weather-date-time"> 
-						{timeNow}
-					</div>
-
-					<div className="weather-forecast-card">
-
-						<div className="weather-icon">
-							<img src={`https://openweathermap.org/img/w/${weather[0].icon}.png`} />
-						</div>
-
-						<div className="weather-city-title">
-							{name}
-							<span className="weather-temp">
-								- {main.temp}&deg;C
-							</span>
-						</div>
-
-						<div className="weather-description">
-							{weather[0].description}
-						</div>
-
-						<div className="weather-info-row">
-							<div className="weather-info-text">
-								Min: {main.temp_min}&deg;C
-							</div>
-							<div className="weather-info-text">
-								Max: {main.temp_max}0&deg;C
-							</div>
-						</div>
-
-						<div className="weather-info-row">
-							<div className="weather-info-text">
-								Sunrise:  
-								<Timestamp time={sys.sunrise} />
-							</div>
-							<div className="weather-info-text">
-								Sunset:
-								<Timestamp time={sys.sunset} />
-							</div>
-						</div>
-
-						<div className="weather-info-row">
-							<div className="weather-info-text">
-								Wind speed: {wind.speed}mph
-							</div>
-							<div className="weather-info-text">
-								Direction: {wind.deg}&deg;
-							</div>
-						</div>
-
-					</div>
-				</main>
+    return ( 
+      <div className="weather-wrapper">
+        <SiteHeader />
 
 
-				<SiteFooter />
-			</div>
-		);
-	}
+        <main className="weather-main">
+          <div className="weather-date-time"> 
+            {timeNow}
+          </div>
+
+          <div className="weather-forecast-card">
+
+            <div className="weather-icon">
+              <img src={`https://openweathermap.org/img/w/${weather[0].icon}.png`} />
+            </div>
+
+            <div className="weather-city-title">
+              {name}
+              <span className="weather-temp">
+                - {main.temp}&deg;C
+              </span>
+            </div>
+
+            <div className="weather-description">
+              {weather[0].description}
+            </div>
+
+            <div className="weather-info-row">
+              <div className="weather-info-text">
+                Min: {main.temp_min}&deg;C
+              </div>
+              <div className="weather-info-text">
+                Max: {main.temp_max}0&deg;C
+              </div>
+            </div>
+
+            <div className="weather-info-row">
+              <div className="weather-info-text">
+                Sunrise:  
+                <Timestamp time={sys.sunrise} />
+              </div>
+              <div className="weather-info-text">
+                Sunset:
+                <Timestamp time={sys.sunset} />
+              </div>
+            </div>
+
+            <div className="weather-info-row">
+              <div className="weather-info-text">
+                Wind speed: {wind.speed}mph
+              </div>
+              <div className="weather-info-text">
+                Direction: {wind.deg}&deg;
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+
+        <SiteFooter />
+      </div>
+    );
+  }
 
 }
 
