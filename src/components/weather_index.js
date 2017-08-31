@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchWeather } from '../actions';
 
+import SiteHeader from './site_header';
+import SiteFooter from './site_footer';
+
 class WeatherIndex extends Component {
 
   componentDidMount() {
@@ -13,7 +16,14 @@ class WeatherIndex extends Component {
 	render() { 
 		return (
 			<div>
+				<SiteHeader />
+
+				<main class="weather_main">
 				weather index page here
+
+				</main>
+
+				<SiteFooter />
 			</div>
 		);
 	}
